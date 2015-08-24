@@ -77,6 +77,16 @@ def invite_user(user, channel, slack_client):
     return json.loads(resp)
 
 
+def leave_user(user, channel, slack_client):
+    if channel.startswith('G'):
+        apicall = 'groups.leave'
+    else:
+        apicall = 'channels.leave'
+    resp = slack_client.api_call(apicall, user=user, channel=channel)
+
+    return json.loads(resp)
+
+
 def setup_bot(config):
     admin_channel = config.get('admin_channel')
     botname = config.get('botname')
