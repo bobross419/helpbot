@@ -29,7 +29,7 @@ def process_message(data):
             return
         leave_channel_id = utils.get_channel_id_by_name(leave_channel,
                                                          slack_client)
-        leave = utils.leave_user(user, leave_channel_id, slack_client)
+        leave = utils.kick_user(user, leave_channel_id, slack_client)
         if leave['ok']:
             text = "leaved %s to %s channel." % (username, leave_channel)
         else:

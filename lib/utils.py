@@ -77,11 +77,11 @@ def invite_user(user, channel, slack_client):
     return json.loads(resp)
 
 
-def leave_user(user, channel, slack_client):
+def kick_user(user, channel, slack_client):
     if channel.startswith('G'):
-        apicall = 'groups.leave'
+        apicall = 'groups.kick'
     else:
-        apicall = 'channels.leave'
+        apicall = 'channels.kick'
     resp = slack_client.api_call(apicall, user=user, channel=channel)
 
     return json.loads(resp)
