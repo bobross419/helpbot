@@ -13,6 +13,7 @@ default: &DEFAULT
 help: *DEFAULT
 ack: *DEFAULT
 invite: *DEFAULT
+leave: *DEFAULT
 helptimer: *DEFAULT
 pr:
   <<: *DEFAULT

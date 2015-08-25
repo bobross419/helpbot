@@ -31,7 +31,7 @@ def process_message(data):
                                                          slack_client)
         leave = utils.kick_user(user, leave_channel_id, slack_client)
         if leave['ok']:
-            text = "leaved %s to %s channel." % (username, leave_channel)
+            text = "%s left channel %s." % (username, leave_channel)
         else:
             text = ("Failed to leave %s to %s"
                     " channel - %s" % (username, leave_channel,
