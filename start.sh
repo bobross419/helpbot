@@ -38,5 +38,10 @@ if [ -n "$REDISPASSWORD" ]; then
 else
   sed -i "/REDISPASSWORD/d" /helpbot/rtmbot.conf
 fi
+if [ -n "$PREVIEWMESSAGES" ]; then
+  sed -i "s,PREVIEWMESSAGES,$PREVIEWMESSAGES,g" /helpbot/rtmbot.conf
+else
+  sed -i "s,PREVIEWMESSAGES,5,g" /helpbot/rtmbot.conf
+fi
 
 exec python rtmbot.py

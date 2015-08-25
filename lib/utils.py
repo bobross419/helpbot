@@ -34,6 +34,18 @@ def format_prs(prs):
     return text
 
 
+def format_history(messages, slack_client):
+    text = []
+    for message in messages:
+	user = get_user_name(message.get('user'), slack_client)
+	txt = message.get('text')
+	ts = arrow.get(message['ts'])
+	t = "%s - %s: %s" % (ts.humanize(), user, txt)
+
+	text.insert(0,t)
+    return text 
+
+
 def get_channels(slack_client):
     return json.loads(slack_client.api_call('channels.list'))
 
@@ -73,6 +85,16 @@ def invite_user(user, channel, slack_client):
     else:
         apicall = 'channels.invite'
     resp = slack_client.api_call(apicall, user=user, channel=channel)
+
+    return json.loads(resp)
+
+
+def preview_channel(channel, count, slack_client):
+    if channel.startswith('G'):
+        apicall = 'groups.history'
+    else:
+        apicall = 'channels.history'
+    resp = slack_client.api_call(apicall, count=count, channel=channel)
 
     return json.loads(resp)
 

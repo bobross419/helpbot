@@ -19,3 +19,4 @@ helpbot:
     - ADMINCHANNEL
     - SLACKBOTNAME=BottyBot
     - ICONEMOJI=":rotating_light:"
+    - PREVIEWMESSAGES

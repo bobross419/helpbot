@@ -14,6 +14,9 @@ help: *DEFAULT
 ack: *DEFAULT
 invite: *DEFAULT
 helptimer: *DEFAULT
+preview:
+  <<: *DEFAULT
+  messages: PREVIEWMESSAGES
 pr:
   <<: *DEFAULT
   redis:
