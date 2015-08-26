@@ -8,6 +8,7 @@ def process_message(data):
 
         admin_channel, botname, icon_emoji = utils.setup_bot(config)
         message_attrs = {'icon_emoji': icon_emoji, 'username': botname}
+        channel = data.get('channel')
 
         user = data.get('user')
         username = utils.get_user_name(user, slack_client)
@@ -21,4 +22,4 @@ def process_message(data):
                                        bot_commands.get('error', 'Unknown error!')))
         logging.info(text)
         print(text)
-        outputs.append([text, message_attrs])
+        outputs.append([channel, text, message_attrs])
