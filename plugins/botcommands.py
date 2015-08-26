@@ -15,7 +15,7 @@ def process_message(data):
         
         bot_commands = utils.get_plugins()
         if bot_commands['ok']:
-            text = "bot commands foo"
+            text = bot_commands['plugins']
         else:
             text = ("Failed to get commands %s"
                     " - %s" % (username,
