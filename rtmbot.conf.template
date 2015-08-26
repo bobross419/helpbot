@@ -14,11 +14,7 @@ help: *DEFAULT
 ack: *DEFAULT
 invite: *DEFAULT
 helptimer: *DEFAULT
-helpdocs:
-  <<: *DEFAULT
-  redis:
-    <<: *REDIS
-    key: helpdocs
+botcommands: *DEFAULT
 pr:
   <<: *DEFAULT
   redis:
