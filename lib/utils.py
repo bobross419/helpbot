@@ -1,5 +1,6 @@
 import arrow
 import json
+import sys
 
 
 def _extract_id(name, items):
@@ -78,7 +79,9 @@ def invite_user(user, channel, slack_client):
 
 
 def get_plugins():
-    plugins = { 'ok': True, 'plugins': [ 'foo', 'bar' ] }
+    #plugins = { 'ok': True, 'plugins': [ 'foo', 'bar' ] }
+    modules = sys.modules.keys()
+    plugins = {'ok': True, 'plugins': modules }
     return plugins
 
 
