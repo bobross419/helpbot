@@ -77,6 +77,11 @@ def invite_user(user, channel, slack_client):
     return json.loads(resp)
 
 
+def get_plugins():
+    plugins = { 'ok': true, 'plugins': [ 'foo', 'bar' ] }
+    return json.loads(plugins)
+
+
 def setup_bot(config):
     admin_channel = config.get('admin_channel')
     botname = config.get('botname')
