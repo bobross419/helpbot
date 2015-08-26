@@ -80,7 +80,7 @@ def invite_user(user, channel, slack_client):
 
 def get_plugins():
     #plugins = { 'ok': True, 'plugins': [ 'foo', 'bar' ] }
-    modules = sys.modules.keys()
+    modules = bot.bot_plugins
     plugins = {'ok': True, 'plugins': modules }
     return plugins
 
