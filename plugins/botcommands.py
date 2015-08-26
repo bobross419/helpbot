@@ -21,4 +21,4 @@ def process_message(data):
                                        bot_commands.get('error', 'Unknown error!')))
         logging.info(text)
         print(text)
-        outputs.append([channel, text, message_attrs])
+        outputs.append([text, message_attrs])
