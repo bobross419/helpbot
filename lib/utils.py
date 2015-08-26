@@ -78,7 +78,7 @@ def invite_user(user, channel, slack_client):
 
 
 def get_plugins():
-    plugins = { 'ok': true, 'plugins': [ 'foo', 'bar' ] }
+    plugins = { 'ok': True, 'plugins': [ 'foo', 'bar' ] }
     return json.loads(plugins)
 
 
