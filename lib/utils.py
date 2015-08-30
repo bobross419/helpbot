@@ -47,6 +47,15 @@ def get_channel_id_by_name(channel, slack_client):
     return match
 
 
+def get_channel_help(channel, slack_client):
+    text = ""
+    topic = get_channel_topic(channel, slack_client)
+    purpose = get_channel_purpose(channel, slack_client)
+    if topic or purpose:
+        text = "```%s\n%s```" % (topic, purpose)
+    return text
+
+
 def get_channel_name(channel, slack_client):
     if channel.startswith('G'):
         apicall = 'groups.info'
