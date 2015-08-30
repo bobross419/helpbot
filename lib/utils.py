@@ -58,13 +58,13 @@ def get_channel_name(channel, slack_client):
     return cdata[channel_type]['name']
 
 
-def get_groups(slack_client):
-    return json.loads(slack_client.api_call('groups.list'))
-
-
-def get_user_name(user, slack_client):
-    udata = json.loads(slack_client.api_call('users.info', user=user))
-    return udata['user']['name']
+def get_channel_purpose(channel, slack_client):
+    if channel.startswith('G'):
+        apicall = 'groups.info'
+    else:
+        apicall = 'channels.info'
+    resp = json.loads(slack_client.api_call(apicall, channel=channel))
+    return resp['group']['purpose']['value']
 
 
 def get_channel_topic(channel, slack_client):
@@ -74,6 +74,15 @@ def get_channel_topic(channel, slack_client):
         apicall = 'channels.info'
     resp = json.loads(slack_client.api_call(apicall, channel=channel))
     return resp['group']['topic']['value']
+
+
+def get_groups(slack_client):
+    return json.loads(slack_client.api_call('groups.list'))
+
+
+def get_user_name(user, slack_client):
+    udata = json.loads(slack_client.api_call('users.info', user=user))
+    return udata['user']['name']
 
 
 def invite_user(user, channel, slack_client):
