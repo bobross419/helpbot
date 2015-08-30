@@ -48,7 +48,7 @@ def process_message(data):
 
         channel_topic = utils.get_channel_topic(ack_channel_id, slack_client)
         
-        if channel_topic
+        if channel_topic:
             text = text + "\nHelp Info: %s" % (channel_topic)
 
         outputs.append([channel, text, message_attrs])
