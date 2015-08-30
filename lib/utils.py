@@ -73,7 +73,7 @@ def get_channel_topic(channel, slack_client):
     else:
         apicall = 'channels.info'
     resp = json.loads(slack_client.api_call(apicall, channel=channel))
-    return resp['group']['topic']
+    return resp['group']['topic']['value']
 
 
 def invite_user(user, channel, slack_client):
