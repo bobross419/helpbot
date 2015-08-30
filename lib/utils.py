@@ -67,6 +67,15 @@ def get_user_name(user, slack_client):
     return udata['user']['name']
 
 
+def get_channel_topic(channel, slack_client):
+    if channel.startswith('G'):
+        apicall = 'groups.info'
+    else:
+        apicall = 'channels.info'
+    resp = slack_client.api_call(apicall, channel=channel)
+    return json.loads(resp.group.topic)
+
+
 def invite_user(user, channel, slack_client):
     if channel.startswith('G'):
         apicall = 'groups.invite'

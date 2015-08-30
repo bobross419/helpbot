@@ -46,4 +46,7 @@ def process_message(data):
         if count is not None and count > 0.0:
             text = text +  " %s has acknowledged %d requests for help since tracking began." % (username, count)
 
+        channel_topic = utils.get_channel_topic(ack_channel_id, slack_client)
+        text = text + "\n%s" % (channel_topic)
+
         outputs.append([channel, text, message_attrs])
