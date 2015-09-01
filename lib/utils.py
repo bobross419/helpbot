@@ -31,8 +31,10 @@ def format_history(messages, slack_client):
             user = message.get('subtype')
             attachment = message.get('attachments')[0]
             txt = attachment.get('fallback')
+        else:
+            user = message.get('subtype')
+            txt = ""
             
-
         txt = txt.replace('```','<codeblock>')
 	ts = arrow.get(message['ts'])
 	t = "%s - %s: %s" % (ts.humanize(), user, txt)
