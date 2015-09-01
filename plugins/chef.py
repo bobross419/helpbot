@@ -1,4 +1,4 @@
-from lib import utils
+from lib import chefs
 
 outputs = []
 
@@ -26,8 +26,10 @@ def process_message(data):
                     "`!chef <command>`" % username)
             outputs.append([channel, text, message_attrs])
             return
+        chef = chefs.Chefs()
+        out = chef.knife_status()
+        text = "User:%s\nCommand:%s\nArgs:%s\nOutput:%s" % (username, command, args, out)
         
-        text = "User:%s\nCommand:%s\nArgs:%s" % (username, command, args)
         
         logging.info(text)
         print(text)
