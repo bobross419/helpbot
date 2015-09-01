@@ -26,11 +26,12 @@ def format_history(messages, slack_client):
     for message in messages:
         if message.get('user'):
             user = get_user_name(message.get('user'), slack_client)
+	    txt = message.get('text')
         else:
-            user = "BOT"
+            user = get_user_name(message.get('bot_id'), slack_client)
+            txt = message.get('subtype')
 
-	txt = message.get('text').replace('```','<codeblock>')
-
+        txt = txt.replace('```','<codeblock>')
 	ts = arrow.get(message['ts'])
 	t = "%s - %s: %s" % (ts.humanize(), user, txt)
 
