@@ -33,8 +33,8 @@ def process_message(data):
         if leave['ok']:
             text = "%s left channel %s." % (username, leave_channel)
         else:
-            text = ("Failed to leave %s to %s"
-                    " channel - %s" % (username, leave_channel,
+            text = ("%s failed to leave channel %s "
+                    " - %s" % (username, leave_channel,
                                        leave.get('error', 'Unknown error!')))
         logging.info(text)
         print(text)
